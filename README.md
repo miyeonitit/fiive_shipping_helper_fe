@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div width="100%" height="100%" align="center">
+  
+<img width="100%" alt="image" src="https://fiive-public.s3.ap-northeast-2.amazonaws.com/assets/banner/fiive_logo_purple.jpg">
 
-## Getting Started
+<p align="center">
+  <h1 align="center">💜 fiive shipping helper💜</h1>
+<img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=Next.js&logoColor=white">
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=TypeScript&logoColor=white">
+<img src="https://img.shields.io/badge/styled components-DB7093?style=flat-square&amp;logo=styled-components&amp;logoColor=white">
+<img src="https://img.shields.io/badge/Recoil-3578E5?style=flat-square&amp;logo=recoil&amp;logoColor=white">
+</p>
 
-First, run the development server:
+</div>
+
+<br />
+
+<br /><br />
+
+# 1. Install Application
+
+`.env` 와 `node 버전`을 확인 후, `npm install` 합니다. <br /><br />
+
+# 2. Running Application
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+$ npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br />
+ 
+# 3. env
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### development mode
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `.env.development`
 
-## Learn More
+### production mode
 
-To learn more about Next.js, take a look at the following resources:
+- `.env.production`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# 4. Frontend Environment
 
-## Deploy on Vercel
+## nvm
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+$ nvm install v{version}     # node 버전을 설치합니다.
+$ nvm ls                            # 설치된 node 버전 목록을 확인합니다.
+$ nvm use {version}          # node 버전을 사용합니다.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br />
+
+# 5. Commit Rule
+
+1. `git add -p` 로 commit 단위를 고려해 주세요. <br /> 작업 시 어떤 코드나 어떤
+   라이브러리가 추가되었는지 작업자 본인이 알아야 하기 때문에, 하나의 작업 단위
+   를 구분하여 commit을 남기는 습관이 필요합니다.
+
+2. commit 을 남깁니다. 이때 작업한 내역에 해당되는 gitmoji를 선택할 수 있습니다.
+
+```bash
+$ npm run commit
+```
+
+| gitmoji | 의미        | 예시                            |
+| ------- | ----------- | ------------------------------- |
+| ✨      | 기능 추가   | ✨ ADD : Auth Guard             |
+| 🐛      | 버그 수정   | 🐛 BUG : Role Guard             |
+| 📝      | 문서 작업   | 📝 DOCS : README on root        |
+| 🚑️     | 긴급 수정   | 🚑️ HOTFIX : Login access token |
+| ♻️      | 리팩토링    | ♻️ REFACTOR : jwt.strategy      |
+| ✅      | 테스트 코드 | ✅ TEST : Auth Guard            |
+| 🚚      | 기타        | 🚚 ETC : package.json           |
+
+<br />
