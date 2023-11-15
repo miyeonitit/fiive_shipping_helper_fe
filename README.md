@@ -46,7 +46,7 @@ $ npm run dev
 
 ```bash
 $ nvm install v{version}     # node 버전을 설치합니다.
-$ nvm ls                            # 설치된 node 버전 목록을 확인합니다.
+$ nvm ls                     # 설치된 node 버전 목록을 확인합니다.
 $ nvm use {version}          # node 버전을 사용합니다.
 ```
 
@@ -54,9 +54,7 @@ $ nvm use {version}          # node 버전을 사용합니다.
 
 # 5. Commit Rule
 
-1. `git add -p` 로 commit 단위를 고려해 주세요. <br /> 작업 시 어떤 코드나 어떤
-   라이브러리가 추가되었는지 작업자 본인이 알아야 하기 때문에, 하나의 작업 단위
-   를 구분하여 commit을 남기는 습관이 필요합니다.
+1. `git add -p` 로 commit 단위를 고려해 주세요.
 
 2. commit 을 남깁니다. 이때 작업한 내역에 해당되는 gitmoji를 선택할 수 있습니다.
 

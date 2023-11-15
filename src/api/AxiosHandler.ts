@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import { getCookie } from 'cookies-next'
+
 const AxiosInstance = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1`,
   withCredentials: true,
@@ -8,6 +10,7 @@ const AxiosInstance = axios.create({
 AxiosInstance.interceptors.request.use(
   (config) => {
     config.headers['Content-Type'] = 'application/json'
+    config.headers['Authorization'] = getCookie('auth-token')
 
     return config
   },
