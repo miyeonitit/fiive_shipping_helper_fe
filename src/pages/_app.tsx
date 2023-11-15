@@ -1,5 +1,6 @@
 import Head from 'next/head'
 
+import axios from 'axios'
 import { RecoilRoot } from 'recoil'
 
 import { ThemeProvider } from 'styled-components'

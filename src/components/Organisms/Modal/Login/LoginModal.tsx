@@ -1,6 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 
+import { setCookie } from 'cookies-next'
+import { useRecoilState } from 'recoil'
+import { authToken } from '@/store/AuthStore'
+
 import styled from 'styled-components'
 import { mediaQuery, BREAKPOINT_TABLET } from '../../../../../styles/mediaQuery'
 
@@ -8,6 +12,10 @@ import AxiosHandler from '../../../../api/AxiosHandler'
 
 import LoginInput from '@/components/Atoms/Input/LoginInput'
 import CTAButton from '@/components/Atoms/Button/CTAButton'
+
+type authTokenType = {
+  accessToken: 'string'
+}
 
 const ModalContainer = styled.div`
   pointer-events: visiblefill;
@@ -78,6 +86,8 @@ const Label = styled.div`
 `
 
 const LoginModal = () => {
+  const [tokenState, setTokenState] = useRecoilState(authToken)
+
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 
@@ -88,14 +98,24 @@ const LoginModal = () => {
 
   const requestLogin = async () => {
     try {
+      const fourHours = 4 * 60 * 60 * 1000
+
       const body = {
         email: email,
         password: password,
       }
 
-      const responseData = await AxiosHandler.post(`/auth/login`, body)
+      const responseData: authTokenType = await AxiosHandler.post(
+        `/auth/login`,
+        body
+      )
 
-      console.log(responseData, 'responseData')
+      const jwtToken = `Bearer ${responseData.accessToken}`
+
+      setCookie('auth-token', jwtToken, {
+        maxAge: fourHours,
+        httpOnly: true,
+      })
     } catch (error) {
       console.error(error)
     }
@@ -103,10 +123,15 @@ const LoginModal = () => {
 
   // 스크롤, 클릭, 드래그 비활성화
   useEffect(() => {
-    console.log(document.body.style, 'document.body.style')
     document.body.style.overflow = 'hidden'
     document.body.style.userSelect = 'none'
     document.body.style.pointerEvents = 'none'
+
+    return () => {
+      document.body.style.overflow = ''
+      document.body.style.userSelect = ''
+      document.body.style.pointerEvents = ''
+    }
   }, [])
 
   return (

@@ -1,14 +1,13 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState, useEffect } from 'react'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import Layout from '@/components/Layout'
-
 import LoadingModal from '../components/Organisms/Modal/Login/LoginModal'
 import FileUploaderTemplate from '../components/Template/FileUploader/FileUploaderTemplate'
 
-const index = () => {
+const Index = () => {
   return (
     <>
       <LoadingModal />
@@ -19,8 +18,8 @@ const index = () => {
   )
 }
 
-index.getLayout = (page: ReactElement) => {
+Index.getLayout = (page: ReactElement) => {
   return <Layout>{page}</Layout>
 }
 
-export default index
+export default Index

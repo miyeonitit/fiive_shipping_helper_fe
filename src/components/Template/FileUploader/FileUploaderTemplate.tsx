@@ -7,7 +7,8 @@ import styled from 'styled-components'
 import { useRecoilState } from 'recoil'
 
 import AxiosHandler from '../../../api/AxiosHandler'
-import { statusState } from '../../../store/DataStatus'
+import { statusState } from '@/store/DataStatus'
+import { authToken } from '@/store/AuthStore'
 import { handleErrorEvent } from '@/utils/handleErrorEvent/handleErrorEvent'
 
 import ShippingListFrameTable from '../../Organisms/ShippingList/ShippingListFrameTable'
@@ -191,6 +192,7 @@ const FileUploaderTemplate = () => {
   )
 
   const [apiStatus, setApiStatus] = useRecoilState(statusState)
+  const [tokenState, setTokenState] = useRecoilState(authToken)
 
   const [receiverList, setReceiverList] = useState<receiverListType>([])
   const [shipNumberList, setShipNumberList] = useState<shipNumber>([])
@@ -297,6 +299,7 @@ const FileUploaderTemplate = () => {
     AllBillNumberList: shipNumber
   ) => {
     try {
+      const headerConfig = { Authorization: tokenState }
       const body = {
         shippingNumber: AllBillNumberList,
       }
@@ -328,6 +331,7 @@ const FileUploaderTemplate = () => {
 
       setApiStatus('success')
     } catch (error) {
+      console.log(error, 'error')
       const errorCode = error?.response.status
 
       handleErrorEvent(errorCode)
