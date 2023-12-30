@@ -1,14 +1,10 @@
 <div width="100%" height="100%" align="center">
-  
-<img width="100%" alt="image" src="https://fiive-public.s3.ap-northeast-2.amazonaws.com/assets/banner/fiive_logo_purple.jpg">
 
-<p align="center">
-  <h1 align="center">💜 fiive shipping helper💜</h1>
+<h1>📦 fiive Shipping Helper 📦</h1>
 <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=Next.js&logoColor=white">
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=TypeScript&logoColor=white">
 <img src="https://img.shields.io/badge/styled components-DB7093?style=flat-square&amp;logo=styled-components&amp;logoColor=white">
 <img src="https://img.shields.io/badge/Recoil-3578E5?style=flat-square&amp;logo=recoil&amp;logoColor=white">
-</p>
 
 </div>
 
